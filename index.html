@@ -1,204 +1,162 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
 
-        <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css" />
-        <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
-        <py-env>
-            - numpy
-            - matplotlib    
-        </py-env>
-        
-    </head>
+<div id="glowscript" class="glowscript" style="width:100%">
+<link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link type="text/css" href="https://www.glowscript.org/css/redmond/2.1/jquery-ui.custom.css" rel="stylesheet" />
+<link type="text/css" href="https://www.glowscript.org/css/ide.css" rel="stylesheet" />
+<script type="text/javascript" src="https://www.glowscript.org/lib/jquery/2.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://www.glowscript.org/lib/jquery/2.1/jquery-ui.custom.min.js"></script>
+<script type="text/javascript" src="https://www.glowscript.org/package/glow.3.2.min.js"></script>
+<script type="text/javascript" src="https://www.glowscript.org/package/RSrun.3.2.min.js"></script>
+<script type="text/javascript"><!--//--><![CDATA[//><!--
+
+// START JAVASCRIPT
+;(function() {;
+var ρσ_modules = {};
+ρσ_modules.pythonize = {};
+
+(function(){
+    function strings() {
+        var string_funcs, exclude, name;
+        string_funcs = set("capitalize strip lstrip rstrip islower isupper isspace lower upper swapcase center count endswith startswith find rfind index rindex format join ljust rjust partition rpartition replace split rsplit splitlines zfill".split(" "));
+        if (!arguments.length) {
+            exclude = (function(){
+                var s = ρσ_set();
+                s.jsset.add("split");
+                s.jsset.add("replace");
+                return s;
+            })();
+        } else if (arguments[0]) {
+            exclude = Array.prototype.slice.call(arguments);
+        } else {
+            exclude = null;
+        }
+        if (exclude) {
+            string_funcs = string_funcs.difference(set(exclude));
+        }
+        var ρσ_Iter0 = string_funcs;
+        ρσ_Iter0 = ((typeof ρσ_Iter0[Symbol.iterator] === "function") ? (ρσ_Iter0 instanceof Map ? ρσ_Iter0.keys() : ρσ_Iter0) : Object.keys(ρσ_Iter0));
+        for (var ρσ_Index0 of ρσ_Iter0) {
+            name = ρσ_Index0;
+            (ρσ_expr_temp = String.prototype)[(typeof name === "number" && name < 0) ? ρσ_expr_temp.length + name : name] = (ρσ_expr_temp = ρσ_str.prototype)[(typeof name === "number" && name < 0) ? ρσ_expr_temp.length + name : name];
+        }
+    };
+    if (!strings.__module__) Object.defineProperties(strings, {
+        __module__ : {value: "pythonize"}
+    });
+
+    ρσ_modules.pythonize.strings = strings;
+})();
+async function __main__() {
+"use strict";
+    var display = canvas;
+    var scene = canvas();
+
+    var version, print, arange, __name__, type, ρσ_ls, g, theta0, phi0, theta_dot0, phi_dot0, m1, m2, r1, r2, M1, M2, point1, point2, dt, Theta, Phi, theta, phi, theta_dot, phi_dot;
+    version = ρσ_list_decorate([ "3.2", "glowscript" ]);
+    Array.prototype['+'] = function(r) {return this.concat(r)}
+    Array.prototype['*'] = function(r) {return __array_times_number(this, r)}
+    window.__GSlang = "vpython";
+    print = GSprint;
+    arange = range;
+    __name__ = "__main__";
+    type = pytype;
+    var strings = ρσ_modules.pythonize.strings;
+
+    strings();
+    "3";
+    async function func1(theta, phi, m1, m2, r1, r2) {
+        "4";
+        return m1["*"](g)["*"](r1)["*"](r1)["+"](m2["*"](g)["*"](r1)["*"](r2))["*"](sin(theta))["-"](1["*"](m2)["*"](g)["*"](r1)["*"](r2)["*"](sin(phi)))["/"](m1["+"](m2)["*"](r1)["*"](r1)["*"](r2)["-"](1["*"](m2)["*"](r1)["*"](r1)["*"](r2)));
+    };
+    if (!func1.__argnames__) Object.defineProperties(func1, {
+        __argnames__ : {value: ["theta", "phi", "m1", "m2", "r1", "r2"]},
+        __module__ : {value: null}
+    });
+
+    "6";
+    async function func2(theta, phi, m1, m2, r1, r2) {
+        "7";
+        return m2["*"](g)["*"](r2)["*"](sin(phi))["-"](1["*"](m2)["*"](r1)["*"](r2)["*"]((await func1(theta, phi, m1, m2, r1, r2))))["/"](m2["*"](r2)["*"](r2));
+    };
+    if (!func2.__argnames__) Object.defineProperties(func2, {
+        __argnames__ : {value: ["theta", "phi", "m1", "m2", "r1", "r2"]},
+        __module__ : {value: null}
+    });
+
+    "9";
+    g = 9.8;
+    "10";
+    theta0 = pi["/"](6);
+    "11";
+    phi0 = pi["/"](6);
+    "12";
+    theta_dot0 = 0;
+    "13";
+    phi_dot0 = 0;
+    "14";
+    m1 = 1;
+    "15";
+    m2 = 1;
+    "16";
+    r1 = 10;
+    "17";
+    r2 = 10;
+    "19";
+    M1 = ρσ_interpolate_kwargs.call(this, sphere, [ρσ_desugar_kwargs({pos: vector(r1["*"](sin(theta0)), 1["-u"]()["*"](r1)["*"](cos(theta0)), 0), radius: 1, color: color.red})]);
+    "20";
+    M2 = ρσ_interpolate_kwargs.call(this, sphere, [ρσ_desugar_kwargs({pos: vector(r1["*"](sin(theta0))["+"](r2["*"](sin(phi0))), 1["-u"]()["*"](r1)["*"](cos(theta0))["-"](1["*"](r2)["*"](cos(phi0))), 0), radius: 1, color: color.blue})]);
+    "21";
+    point1 = ρσ_interpolate_kwargs.call(this, arrow, [ρσ_desugar_kwargs({pos: vector(0, 0, 0), axis: M1.pos, shaftwidth: .3})]);
+    "22";
+    point2 = ρσ_interpolate_kwargs.call(this, arrow, [ρσ_desugar_kwargs({pos: M1.pos, axis: M2.pos, shaftwidth: .3})]);
+    "24";
+    dt = .01;
+    "25";
+    Theta = ρσ_list_decorate([ theta0 ]);
+    "26";
+    Phi = ρσ_list_decorate([ phi0 ]);
+    "27";
+    theta = theta0;
+    "28";
+    phi = phi0;
+    "29";
+    theta_dot = theta_dot0;
+    "30";
+    phi_dot = phi_dot0;
+    "31";
+    while (true) {
+        "32";
+        theta_dot = theta_dot["+"](dt["*"]((await func1(theta, phi, m1, m2, r1, r2))));
+        "33";
+        phi_dot = phi_dot["+"](dt["*"]((await func2(theta, phi, m1, m2, r1, r2))));
+        "34";
+        theta = theta["+"](dt["*"](theta_dot));
+        "35";
+        phi = phi["+"](dt["*"](phi_dot));
+        "36";
+        M1.pos = vector(r1["*"](sin(theta)), r1["*"](cos(theta)), 0);
+        "37";
+        M2.pos = vector(r1["*"](sin(theta))["+"](r2["*"](sin(phi))), r1["*"](cos(theta))["+"](r2["*"](cos(phi))), 0);
+        "38";
+        point1.axis = M1.pos;
+        "39";
+        point2.pos = M1.pos;
+        "40";
+        point2.axis = M2.pos["-"](1["*"](M1.pos));
+        "41";
+        (await rate(250));
+    }
+};
+if (!__main__.__module__) Object.defineProperties(__main__, {
+    __module__ : {value: null}
+});
+
+;$(function(){ window.__context = { glowscript_container: $("#glowscript").removeAttr("id") }; __main__() })})()
+// END JAVASCRIPT
+
+//--><!]]></script>
+</div>
 
 
-    <body>
-        <py-script>
-            import matplotlib.pyplot as plt
-            import numpy as np
-        
-            TMAX = 72
-            TRATE = TMAX
-               
-            def PK1(*args, **kwargs) : #골수에 직접 투여
-                try :
-                    A0 = float(Element("A_zero").value)
-                    w = float(Element("Weight").value)
-                    ke = 0.28 # 약물제거 속도 상수
-                    V = 0.6*w # 혈액 부피   
-                    Age = int(Element("AGE").value)       
-                except :
-                    return 0
-                t = np.linspace(0,TMAX,TRATE)
-                y = (A0/V)*np.exp(-ke*t)
-                fig, ax = plt.subplots()
-                ax.plot(t,y)
-
-                ax.plot(t,np.linspace(10,10,TMAX),"r")
-                ax.plot(t,np.linspace(20,20,TMAX),"r")
-                plt.title('Marrow Injection (PK)')
-                plt.xlabel('time (h)')
-                plt.ylabel('plasma concentration (mg/L)')
-                pyscript.write("PK1",fig)
-
-            def PK2(*args, **kwargs) : #약을 일번적으로 복용
-                try :
-                    A0 = float(Element("A_zero").value)
-                    w = float(Element("Weight").value)
-                    Age = int(Element("AGE").value)
-                    ke = 0.28 # 약물제거 속도 상수
-                    ka = 1.8 # 약물흡수의 1차 반응 속도
-                    V = 0.6*w # 혈액 부피
-                    F = 0.89 # 생체 이용률
-                except :
-                    return 0
-                t = np.linspace(0,TMAX,TRATE)
-                y = ((ka*F*A0)/(V*(ka-ke)))*(np.exp(-ke*t)-np.exp(-ka*t))
-
-                fig, ax = plt.subplots()
-                ax.plot(t,y)
-                ax.plot(t,np.linspace(10,10,TMAX),"r")
-                ax.plot(t,np.linspace(20,20,TMAX),"r")
-                plt.title('Oral Injection (PK)')
-                plt.xlabel('time (h)')
-                plt.ylabel('plasma concentration (mg/L)')
-                pyscript.write("PK2",fig)
-            def PK3(*args, **kwargs) : #약물의 Multiple dosing
-                try :
-                    A0 = float(Element("A_zero").value)
-                    w = float(Element("Weight").value)
-                    T = float(Element("Time_rate").value)
-                    N = float(Element("Total_N").value)
-                    Age = int(Element("AGE").value)
-                    ke = 0.28 # 약물제거 속도 상수
-                    V = 0.6*w # 혈액 부피
-                    CL = V*ke # 약물이 이용될 수 있는 부피
-                    F = 0.89 # 생체 이용률
-                except :
-                    return 0
-                t = np.linspace(0,TMAX,TRATE)
-                y = ((F*A0/T)/CL)*(1-np.exp(-(CL/V)*t))
-
-                fig, ax = plt.subplots()
-                ax.plot(t,y)
-                ax.plot(t,np.linspace(10,10,TMAX),"r")
-                ax.plot(t,np.linspace(20,20,TMAX),"r")
-                plt.title('Drug Single dosing (PK)')
-                plt.xlabel('time (h)')
-                plt.ylabel('plasma concentration (mg/L)')
-                pyscript.write("PK3",fig)
-            def PK3_(*args, **kwargs) : #약물의 Multiple dosing
-                try :
-                    A0 = float(Element("A_zero").value)
-                    w = float(Element("Weight").value)
-                    T = float(Element("Time_rate").value)
-                    N = float(Element("Total_N").value)
-                    Age = int(Element("AGE").value)
-                    ke = 0.28 # 약물제거 속도 상수
-                    ka = 1.8 # 약물흡수의 1차 반응 속도
-                    V = 0.6*w # 혈액 부피
-                    F = 0.89 # 생체 이용률
-                except :
-                    return 0
-                t = np.linspace(0,TMAX,TRATE)
-
-                
-                y = []
-                for i in range(0,TMAX) :
-                    ret = 0
-                    for j in range(0,int(N)) :
-                            if i-j*T>0 :
-                                ret = ret+ ((ka*F*A0)/(V*(ka-ke)))*(np.exp(-ke*(i-j*T))-np.exp(-ka*(i-j*T)))
-                        
-                    y.append(ret)
-                y = np.array(y)
-                fig, ax = plt.subplots()
-                ax.plot(t,y)
-                ax.plot(t,np.linspace(10,10,TMAX),"r")
-                ax.plot(t,np.linspace(20,20,TMAX),"r")
-                plt.title('Drug Multiple dosing (PK)')
-                plt.xlabel('time (h)')
-                plt.ylabel('plasma concentration (mg/L)')
-                pyscript.write("PK3_",fig)
-            def PK4(*args, **kwargs) : #약물 복용의 Effect
-                try :
-                    A0 = float(Element("A_zero").value)
-                    w = float(Element("Weight").value)
-                    T = float(Element("Time_rate").value)
-                    N = float(Element("Total_N").value)
-                    Age = float(Element("AGE").value)
-                    Emax = 5.5
-                    EC50 = 13.1-0.148*(Age-40)
-                    ke = 0.28 # 약물제거 속도 상수
-                    ka = 1.8 # 약물흡수의 1차 반응 속도
-                    V = 0.6*w # 혈액 부피
-                    CL = V*ke # 약물이 이용될 수 있는 부피
-                    F = 0.89 # 생체 이용률
-                    Cmax = (F*A0/V)*np.exp(-ke*((1/ka-ke)*np.log(ka/ke)))
-                except :
-                    return 0
-                t = np.linspace(0,TMAX,TRATE)
-                Ce = ((F*A0/T)/CL)*(1-np.exp(-(CL/V)*t))    
-                y = 10-(Emax*Ce)/(EC50+Ce)
-                
-                fig, ax = plt.subplots()
-                ax.plot(t,y)
-                ax.plot(t,np.linspace(10,10,TMAX),"r")
-                ax.plot(t,np.linspace(20,20,TMAX),"r")
-                plt.title('Drug Effect (PK)')
-                plt.xlabel('time (h)')
-                plt.ylabel('plasma concentration (mg/L)')
-                pyscript.write("PK4",fig)
-                pyscript.write("CMAX","Cmax : "+str(Cmax))
-            def createPlot(*args, **kwargs):
-                Element("errormassage").clear()
-                try :
-                    PK1()
-                    PK2()
-                    PK3()
-                    PK3_()
-                    PK4()
-                except :
-                    Element("errormassage").element.innerText = "에러 발생!!"
-                    
-                        
-        </py-script>
-        
-
-        <main class="container">
-            <h5>빨간선 밖으로 혈중 아세트아미노펜 농도가 벗어나게 될 경우, 이는 약물이 적절하게 사용되지 않는 것입니다. 빨간선보다 낮은 혈중 아세트아미노펜 농도에서는 진통제 효과가 충분히 나타나지 않고, 높은 경우 약물 과다 복용으로 인한 문제가 발생하게 됩니다.</h5>
-            <h1 id="errormassage"></h1>
-            <div style="display:grid; grid-template-columns:300px 10px 300px 10px 300px 10px 300px">
-                <div id="PK1"></div>
-                <div></div>
-                <div id="PK2"></div>
-                <div></div>
-                <div id="PK3"></div>
-                <div></div>
-                <div id="PK4"></div>
-            </div>
-            <br><br>
-            <div style="display:grid; grid-template-columns:700px 20px 350px">
-                <div id="PK3_"></div>
-                <div></div>
-                <h3 id="CMAX"></h1>
-            </div>
-            
-            <br>
-            <div style="display:grid; grid-template-columns:600px 600px">
-                <input type="number" id="A_zero" placeholder="약물의 투여량(mg)" style = "width:90%">
-                <input type="number" id="Weight" placeholder="몸무게(kg)" style = "width:90%">
-                <input type="number" id="Time_rate" placeholder="약물 복용 시간 간격(h)" style = "width:90%">
-                <input type="number" id="Total_N" placeholder="약물 총 복용 횟수"  style = "width:90%">
-                <input type="number" id="AGE" placeholder="나이"  style = "width:90%">
-                <button id = "gogogo" pys-onClick ="createPlot" style = "width:90%">GO!</button>
-            </div>
-            <div style="display:grid; grid-template-columns:200px 20px 700px">
-                <button onclick="location.href='description.html'">설명 보기</button>
-                
-            </div>
-            
-        </main>
-        
-    </body>
-</html>
+<button onclick="location.href='description.html'">문제 보기</button>
